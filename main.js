@@ -1,3 +1,4 @@
+
 Webcam.set({
     width:355,
     height:300,
@@ -7,7 +8,7 @@ Webcam.set({
 
 camera = document.getElementById("camera");
 
-webcam.attach('#camera');
+Webcam.attach('#camera');
 
 function take_snapshot()
 {
@@ -16,9 +17,9 @@ function take_snapshot()
     });
 }
 
-console.log('ml5 version:' , m15.version);
+console.log('ml5 version:' , ml5.version);
 
-classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/NhoB_OULy/model.json',modelLoaded);
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/NLjjF_AWN/model.json',modelLoaded);
 
 function modelLoaded()
 {
@@ -41,6 +42,6 @@ function gotResult(error, results)
     {
         console.log(results);
         document.getElementById("result_object_name").innerHTML = results[0].label;
-        document.getElementById("result_object_accuracy").innerHTML = results[0].confidence.toFixed(2);
+        document.getElementById("result_object_accuracy").innerHTML = results[0].confidence.toFixed(3);
     }
 }
